@@ -115,11 +115,13 @@ public class SortingAppSplitPane extends JFrame {
             int[] values = Arrays.stream(inputArray).mapToInt(Integer::parseInt).toArray();
 
             if (method.equals("bubble")) {
+                outputArea.setText("Bubble Sort Steps:\n");
                 bubbleSort(values);
-                outputArea.setText("Hasil Bubble Sort: " + Arrays.toString(values));
+                outputArea.append("\nHasil akhir: " + Arrays.toString(values));
             } else if (method.equals("insertion")) {
+                outputArea.setText("Insertion Sort Steps:\n");
                 insertionSort(values);
-                outputArea.setText("Hasil Insertion Sort: " + Arrays.toString(values));
+                outputArea.append("\nHasil akhir: " + Arrays.toString(values));
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, 
@@ -139,6 +141,7 @@ public class SortingAppSplitPane extends JFrame {
                     arr[j + 1] = temp;
                 }
             }
+            outputArea.append("Step " + (i + 1) + ": " + Arrays.toString(arr) + "\n");
         }
     }
 
@@ -153,6 +156,7 @@ public class SortingAppSplitPane extends JFrame {
                 j--;
             }
             arr[j + 1] = key;
+            outputArea.append("Step " + i + ": " + Arrays.toString(arr) + "\n");
         }
     }
 
